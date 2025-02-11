@@ -1,0 +1,4 @@
+npm install axios
+npm install --save-dev @types/node
+npm install html-react-parser
+npm install react-spinners

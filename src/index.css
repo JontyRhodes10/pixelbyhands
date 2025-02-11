@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure parallax works properly in modern browsers */
+@supports (background-attachment: fixed) {
+  .bg-fixed {
+    background-attachment: fixed;
+  }
+}
+
+/* Fallback for browsers that don't support fixed backgrounds */
+@supports not (background-attachment: fixed) {
+  .bg-fixed {
+    background-attachment: scroll;
+  }
+}
