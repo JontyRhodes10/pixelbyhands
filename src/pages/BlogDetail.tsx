@@ -108,12 +108,32 @@ interface BlogPost {
 
 const applyClasses = (node: any) => {
   if (node.type === 'tag') {
-    if (node.name === 'p') {
-      node.attribs.class = 'text-gray-600 dark:text-gray-300 mb-8';
-    } else if (node.name === 'h2') {
-      node.attribs.class = 'text-2xl font-bold text-gray-900 dark:text-white mb-4';
-    } else if (node.name === 'ul' || node.name === 'ol') {
-      node.attribs.class = 'list-disc pl-6 text-gray-600 dark:text-gray-300 mb-8';
+    switch (node.name) {
+      case 'p':
+        node.attribs.class = 'text-gray-600 dark:text-gray-300 mb-8';
+        break;
+      case 'h2':
+        node.attribs.class = 'text-2xl font-bold text-gray-900 dark:text-white mb-4';
+        break;
+      case 'h3':
+        node.attribs.class = 'text-xl font-bold text-gray-900 dark:text-white mb-4';
+        break;
+      case 'ul':
+      case 'ol':
+        node.attribs.class = 'list-disc pl-6 text-gray-600 dark:text-gray-300 mb-8';
+        break;
+      case 'li':
+        node.attribs.class = 'text-gray-600 dark:text-gray-300';
+        break;
+      case 'table':
+        node.attribs.class = 'w-full border-collapse border border-gray-300 dark:border-gray-700 mb-8';
+        break;
+      case 'th':
+        node.attribs.class = 'border border-gray-300 dark:border-gray-700 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white';
+        break;
+      case 'td':
+        node.attribs.class = 'border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-600 dark:text-gray-300';
+        break;
     }
   }
   return node;
